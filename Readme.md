@@ -4,6 +4,35 @@
 
 The Airline Management System is a comprehensive C++ application designed to manage all aspects of airline operations, including flight scheduling, passenger bookings, aircraft management, crew assignments, and maintenance tracking.
 
+
+Project Statement (Expect having this only to build the project):
+The Airline Reservation and Management System is an advanced, console-based application developed
+in C++ that leverages Object-Oriented Programming (OOP) principles and Modern C++ features to
+simulate the comprehensive operations of an airline. Designed to cater to multiple user roles—including
+Administrators, Booking Agents, and Passengers—the system ensures secure and role-based access to its
+diverse functionalities. Administrators can manage user accounts, oversee flight schedules, and handle
+aircraft and crew assignments, while Booking Agents facilitate flight reservations, seat selections, and
+payment processing. Passengers benefit from an intuitive interface to search for flights, make bookings,
+select seats, and manage their personal profiles, including participation in loyalty programs.
+Flight scheduling and management system, allowing for the addition, updating, and removal of flights
+with detailed information such as flight numbers, origins, destinations, departure and arrival times, and
+aircraft types. The system also manages the airline’s fleet by tracking aircraft specifications, maintenance
+schedules, and availability, ensuring optimal operational efficiency. Crew assignment functionalities
+enable the allocation of pilots and flight attendants to specific flights while adhering to regulatory
+compliance regarding maximum flight hours.
+The booking system is robust, offering search capabilities based on various criteria like date, destination,
+and price, along with seat selection through interactive seat maps. It supports reservation creation,
+modification, and cancellation, complete with simulated payment processing and refund handling.
+Additionally, the system maintains comprehensive passenger profiles, facilitating personalized
+experiences and tracking travel histories. The check-in module provides both online and airport-based
+check-in processes, including the generation of boarding passes and management of the boarding
+procedure.
+Maintenance tracking is integral to the system, ensuring that all aircraft undergo scheduled maintenance
+and that detailed logs of maintenance activities are maintained for safety and regulatory compliance.
+Real-time flight status updates inform relevant users of changes such as delays or cancellations, while
+the reporting and analytics module generates insightful reports on flight performance, reservations,
+financial summaries, and user activities.
+Data persistence is achieved through file-based databases like JSON or CSV. 
 ## Features
 
 ### User Management
@@ -46,6 +75,12 @@ The Airline Management System is a comprehensive C++ application designed to man
 - **User Activity**: Track system usage and user actions
 
 ## System Architecture
+├── inc
+├── src
+└── build
+cmakelists.txt
+doxyfile
+
 
 ### Class Hierarchy
 
@@ -60,7 +95,7 @@ Flight
 Reservation
 Payment
 Maintenance
-SystemManager (Facade Pattern)
+SystemManager 
 ```
 
 ### Core Components
@@ -75,13 +110,7 @@ SystemManager (Facade Pattern)
 
 ## Technical Details
 
-### Technologies Used
-- **Language**: C++17
-- **Data Storage**: JSON-based persistence using nlohmann/json library
-- **Design Patterns**: 
-  - Inheritance (User hierarchy)
-  - Facade (SystemManager)
-  - Factory (Object creation from JSON)
+
 
 ### Key Features
 - Object-Oriented Design
@@ -94,7 +123,7 @@ SystemManager (Facade Pattern)
 ## Data Persistence
 
 The system stores data in JSON format in the following files:
-- `data/users.json` - User accounts and profiles
+- `data/users.json` - User acunts and profiles
 - `data/aircraft.json` - Aircraft fleet information
 - `data/flights.json` - Flight schedules and details
 - `data/reservations.json` - Booking records
@@ -170,84 +199,6 @@ End-user functionality:
 - Cost management
 - Status monitoring
 
-## Building Documentation
-
-### Prerequisites
-- Doxygen (version 1.9.0 or higher)
-- Graphviz (for UML diagrams)
-
-### Generate Documentation
-
-```bash
-# Run Doxygen
-doxygen Doxyfile
-
-# Open documentation
-cd docs/html
-open index.html  # macOS
-xdg-open index.html  # Linux
-start index.html  # Windows
-```
-
-## UML Diagrams
-
-The documentation includes comprehensive UML diagrams:
-- **Class Diagrams**: Show relationships between classes
-- **Inheritance Diagrams**: Display class hierarchies
-- **Collaboration Diagrams**: Show class interactions
-- **Include Graphs**: Display file dependencies
-
-## API Documentation
-
-Detailed API documentation is generated for:
-- All public class methods
-- Protected and private members (optional)
-- Function parameters and return values
-- Code examples and usage notes
-- Cross-references between related classes
-
-## Development Guidelines
-
-### Coding Standards
-- Use meaningful variable and function names
-- Follow C++ naming conventions
-- Add comments for complex logic
-- Keep functions focused and concise
-- Use const correctness
-
-### Error Handling
-- Validate input parameters
-- Use exceptions for error conditions
-- Provide meaningful error messages
-- Handle edge cases
-
-### Memory Management
-- Use smart pointers (shared_ptr)
-- Follow RAII principles
-- Avoid memory leaks
-- Proper object lifecycle management
-
-## Future Enhancements
-
-Potential improvements:
-- Database integration (MySQL/PostgreSQL)
-- Real-time notifications
-- Mobile application integration
-- Advanced reporting dashboards
-- Multi-language support
-- Enhanced security features (encryption, 2FA)
-
-## License
-
-[Specify your license here]
-
-## Contributors
-
-[List contributors here]
-
-## Contact
-
-[Contact information]
 
 ---
 
