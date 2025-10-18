@@ -75,12 +75,13 @@ Data persistence is achieved through file-based databases like JSON or CSV.
 - **User Activity**: Track system usage and user actions
 
 ## System Architecture
+```
 ├── inc
 ├── src
 └── build
 cmakelists.txt
 doxyfile
-
+```
 
 ### Class Hierarchy
 
