@@ -1,0 +1,42 @@
+#------------------------------------------------------------
+# Project settings
+#------------------------------------------------------------
+PROJECT_NAME           = "Airline Reservation System UML"
+OUTPUT_DIRECTORY       = docs
+
+#------------------------------------------------------------
+# Input folders
+#------------------------------------------------------------
+INPUT                  = inc src
+FILE_PATTERNS          = *.h *.hpp *.cpp
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+
+#------------------------------------------------------------
+# HTML output
+#------------------------------------------------------------
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+
+#------------------------------------------------------------
+# Graphviz (UML-like graphs)
+#------------------------------------------------------------
+HAVE_DOT               = YES
+CLASS_DIAGRAMS         = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+DOT_PATH               = "C:/Program Files/Graphviz/bin"
+DOT_IMAGE_FORMAT       = png
+DOT_GRAPH_MAX_NODES    = 100
+MAX_DOT_GRAPH_DEPTH    = 0
+DOT_TRANSPARENT        = YES
+INTERACTIVE_SVG        = YES
+
+#------------------------------------------------------------
+# Misc
+#------------------------------------------------------------
+UML_LOOK               = YES
+FULL_PATH_NAMES        = NO
+QUIET                  = NO

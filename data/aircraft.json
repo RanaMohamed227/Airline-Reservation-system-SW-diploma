@@ -1,0 +1,47 @@
+[
+    {
+        "aircraftID": "AC1",
+        "model": "Boeing 737",
+        "manufacturer": "Boeing",
+        "totalSeats": 180,
+        "economySeats": 150,
+        "businessSeats": 24,
+        "firstClassSeats": 6,
+        "status": "Available",
+        "flightHours": 5000,
+        "hoursSinceMaintenance": 100,
+        "lastMaintenanceDate": "2024-09-01",
+        "nextMaintenanceDate": "2025-01-01",
+        "maintenanceRecordIDs": []
+    },
+    {
+        "aircraftID": "AC2",
+        "model": "Airbus A320",
+        "manufacturer": "Airbus",
+        "totalSeats": 150,
+        "economySeats": 126,
+        "businessSeats": 20,
+        "firstClassSeats": 4,
+        "status": "Available",
+        "flightHours": 3000,
+        "hoursSinceMaintenance": 50,
+        "lastMaintenanceDate": "2024-10-01",
+        "nextMaintenanceDate": "2025-02-01",
+        "maintenanceRecordIDs": []
+    },
+    {
+        "aircraftID": "AC3",
+        "model": "Boeing 777",
+        "manufacturer": "Boeing",
+        "totalSeats": 300,
+        "economySeats": 250,
+        "businessSeats": 40,
+        "firstClassSeats": 10,
+        "status": "Available",
+        "flightHours": 8000,
+        "hoursSinceMaintenance": 200,
+        "lastMaintenanceDate": "2024-08-15",
+        "nextMaintenanceDate": "2024-12-15",
+        "maintenanceRecordIDs": []
+    }
+]

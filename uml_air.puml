@@ -1,0 +1,248 @@
+@startuml uml_air
+' Style settings
+skinparam classAttributeIconSize 0
+skinparam classFontSize 11
+skinparam classBackgroundColor White
+skinparam classBorderColor Black
+
+' Abstract User Base Class
+abstract class User {
+  # userID: string
+  # username: string
+  # password: string
+  # email: string
+  # phone: string
+  # role: string
+  --
+  + User(username, password, role)
+  + validatePassword(pass): bool
+  + {abstract} showMenu(): void
+  + changePassword(): bool
+  + toJson(): json
+  {static} + fromJson(): shared_ptr<User>
+  .. Getters & Setters ..
+}
+
+' Admin Class
+class Admin {
+  --
+  + Admin(username, password)
+  + createUser(): void
+  + deleteUser(): void
+  + addFlight(): void
+  + addAircraft(): void
+  + scheduleMaintenanceForAircraft(): void
+  + generateReports(): void
+  + showMenu(): void
+  + toJson(): json
+  {static} + fromJson(): shared_ptr<Admin>
+}
+
+' BookingAgent Class
+class BookingAgent {
+  - bookingsProcessed: int
+  --
+  + BookingAgent(username, password)
+  + searchFlights(): void
+  + createBooking(): void
+  + modifyBooking(): void
+  + cancelBooking(): void
+  + processPayment(): void
+  + checkInPassenger(): void
+  + showMenu(): void
+  + toJson(): json
+  {static} + fromJson(): shared_ptr<BookingAgent>
+  .. Getters & Setters ..
+}
+
+' Passenger Class
+class Passenger {
+  - passportNumber: string
+  - nationality: string
+  - dateOfBirth: string
+  - loyaltyPoints: int
+  - tier: string
+  - preferences: string
+  - reservationIDs: vector<string>
+  --
+  + Passenger(username, password, passport, nationality, DOB)
+  + searchFlights(): void
+  + bookFlight(): void
+  + earnPoints(): void
+  + redeemPoints(): bool
+  + updateTier(): void
+  + showMenu(): void
+  + toJson(): json
+  {static} + fromJson(): shared_ptr<Passenger>
+  .. Getters & Setters ..
+}
+
+' Aircraft Class
+class Aircraft {
+  - aircraftID: string
+  - model: string
+  - manufacturer: string
+  - seatConfiguration: int
+  - status: string
+  - flightHours: int
+  - maintenanceRecordIDs: vector<string>
+  --
+  + Aircraft(model, manufacturer, economy, business, first)
+  + addFlightHours(): void
+  + needsMaintenance(): bool
+  + performedMaintenance(): void
+  + toJson(): json
+  {static} + fromJson(): shared_ptr<Aircraft>
+  .. Getters & Setters ..
+}
+
+' Flight Class
+class Flight {
+  - flightNumber: string
+  - origin: string
+  - destination: string
+  - departureTime: string
+  - arrivalTime: string
+  - aircraftID: string
+  - status: string
+  - pricing: double
+  - seatMap: map<string, Seat>
+  --
+  + Flight(flightNum, orig, dest, dep, arr, aircraftID)
+  + initializeSeats(): void
+  + bookSeat(): bool
+  + releaseSeat(): void
+  + updateStatus(): void
+  + toJson(): json
+  {static} + fromJson(): shared_ptr<Flight>
+  .. Getters & Setters ..
+}
+
+' Nested Seat Structure
+class "Flight::Seat" as Seat {
+  + seatNumber: string
+  + seatClass: string
+  + isOccupied: bool
+  + passengerID: string
+  --
+  + Seat()
+  + Seat(num, cls)
+  + toJson(): json
+  {static} + fromJson(j): Seat
+}
+
+' Reservation Class
+class Reservation {
+  - reservationID: string
+  - passengerID: string
+  - flightNumber: string
+  - seatNumbers: vector<string>
+  - status: string
+  - totalAmount: double
+  - paymentID: string
+  - checkedIn: bool
+  --
+  + Reservation(passengerID, flightNum, seats, bookedByUserID)
+  + confirm(): void
+  + cancel(): void
+  + checkIn(): bool
+  + toJson(): json
+  {static} + fromJson(): shared_ptr<Reservation>
+  .. Getters & Setters ..
+}
+
+' Payment Class
+class Payment {
+  - paymentID: string
+  - reservationID: string
+  - amount: double
+  - method: string
+  - status: string
+  - refunded: bool
+  --
+  + Payment(reservationID, amount, method)
+  + process(): bool
+  + refund(): bool
+  + toJson(): json
+  {static} + fromJson(): shared_ptr<Payment>
+  .. Getters & Setters ..
+}
+
+' Maintenance Class
+class Maintenance {
+  - maintenanceID: string
+  - aircraftID: string
+  - type: string
+  - scheduledDate: string
+  - status: string
+  - cost: double
+  --
+  + Maintenance(aircraftID, type, scheduled)
+  + startMaintenance(): void
+  + complete(): void
+  + isOverdue(): bool
+  + toJson(): json
+  {static} + fromJson(): shared_ptr<Maintenance>
+  .. Getters & Setters ..
+}
+
+' SystemManager Class
+class SystemManager {
+  - users: vector<shared_ptr<User>>
+  - aircraft: vector<shared_ptr<Aircraft>>
+  - flights: vector<shared_ptr<Flight>>
+  - reservations: vector<shared_ptr<Reservation>>
+  - payments: vector<shared_ptr<Payment>>
+  - maintenanceRecords: vector<shared_ptr<Maintenance>>
+  - currentUser: shared_ptr<User>
+  --
+  + SystemManager()
+  + registerUser(): bool
+  + authenticateUser(): shared_ptr<User>
+  + addAircraft(): void
+  + addFlight(): void
+  + addReservation(): void
+  + searchFlights(): vector<shared_ptr<Flight>>
+  + saveAllData(): void
+  + loadAllData(): void
+  + generateReports(): void
+  .. Getters & Setters ..
+  .. Find Methods ..
+  .. Delete Methods ..
+}
+
+' Menu Class
+class menu {
+  --
+  + adminMenu(): void
+  + agentMenu(): void
+  + passengerMenu(): void
+}
+
+' Inheritance Relationships
+User <|-- Admin
+User <|-- BookingAgent
+User <|-- Passenger
+
+' Composition/Aggregation Relationships
+Flight *-- Seat : contains
+SystemManager o-- User : manages
+SystemManager o-- Aircraft : manages
+SystemManager o-- Flight : manages
+SystemManager o-- Reservation : manages
+SystemManager o-- Payment : manages
+SystemManager o-- Maintenance : manages
+
+' Association Relationships
+Flight --> Aircraft : assigned to
+Reservation --> Flight : books
+Reservation --> Passenger : belongs to
+Reservation --> Payment : linked with
+Payment --> Reservation : processes
+Maintenance --> Aircraft : maintains
+Passenger --> Reservation : has many
+menu --> SystemManager : uses
+menu --> Admin : interacts with
+menu --> BookingAgent : interacts with
+menu --> Passenger : interacts with
+@enduml
