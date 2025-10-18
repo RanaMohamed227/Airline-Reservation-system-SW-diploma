@@ -202,4 +202,3 @@ End-user functionality:
 
 ---
 
-*This documentation was generated using Doxygen. Last updated: 2025*
