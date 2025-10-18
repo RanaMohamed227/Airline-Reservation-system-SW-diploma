@@ -1,0 +1,10 @@
+/mnt/f/rana/SW/project3/build/CMakeFiles/AirlineReservationSystem.dir
+/mnt/f/rana/SW/project3/build/CMakeFiles/build.dir
+/mnt/f/rana/SW/project3/build/CMakeFiles/run.dir
+/mnt/f/rana/SW/project3/build/CMakeFiles/clean-data.dir
+/mnt/f/rana/SW/project3/build/CMakeFiles/edit_cache.dir
+/mnt/f/rana/SW/project3/build/CMakeFiles/rebuild_cache.dir
+/mnt/f/rana/SW/project3/build/CMakeFiles/list_install_components.dir
+/mnt/f/rana/SW/project3/build/CMakeFiles/install.dir
+/mnt/f/rana/SW/project3/build/CMakeFiles/install/local.dir
+/mnt/f/rana/SW/project3/build/CMakeFiles/install/strip.dir

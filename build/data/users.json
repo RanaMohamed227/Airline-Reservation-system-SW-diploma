@@ -1,0 +1,36 @@
+[
+    {
+        "userID": "U1000",
+        "username": "adminUser",
+        "password": "admin123",
+        "email": "admin@airline.com",
+        "phone": "010-1111-1111",
+        "role": "Admin"
+    },
+    {
+        "userID": "U1001",
+        "username": "agentJane",
+        "password": "agent123",
+        "email": "jane@airline.com",
+        "phone": "010-2222-2222",
+        "role": "Agent",
+        "bookingsProcessed": 0
+    },
+    {
+        "userID": "U1002",
+        "username": "passengerMike",
+        "password": "pass123",
+        "email": "mike@email.com",
+        "phone": "010-3333-3333",
+        "role": "Passenger",
+        "passportNumber": "P123456",
+        "nationality": "USA",
+        "dateOfBirth": "1990-05-15",
+        "loyaltyPoints": 500,
+        "tier": "Bronze",
+        "mealPreference": "None",
+        "seatPreference": "Window",
+        "needsWheelchair": false,
+        "reservationIDs": []
+    }
+]
